@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Note Archive</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Tiro+Bangla:ital@0;1&family=Hind+Siliguri:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<header class="site-header">
+  <div class="brand">
+    <span class="brand-mark">CSE</span>
+    <div class="brand-text">
+      <h1>Note Archive</h1>
+      <p class="tagline">All semester notes, books & questions — in one place</p>
+    </div>
+  </div>
+
+  <div class="admin-zone">
+    <div id="admin-status" class="admin-status hidden">
+      <span class="stamp">ADMIN</span>
+      <span id="admin-name"></span>
+      <button id="connect-drive-btn" class="link-btn">Connect Drive</button>
+      <button id="signout-btn" class="link-btn">Sign Out</button>
+    </div>
+    <div id="signin-box"></div>
+  </div>
+</header>
+
+<main>
+  <!-- Page 1: Home — welcome + all semesters -->
+  <section id="home-view" class="course-detail">
+    <h2>Note Archive</h2>
+    <p class="detail-sub">
+      CSE Notes Repository<br />
+      Faridpur Engineering College (FEC)<br />
+      Faculty of Engineering &amp; Technology, University of Dhaka
+    </p>
+
+    <h3 style="margin:24px 0 8px;">Welcome</h3>
+    <p style="margin:0 0 24px; line-height:1.7;">
+      This site contains organized class notes, lab materials, previous questions, and helpful resources for CSE students. All contents are arranged semester-wise to make studying easier and faster before exams.
+    </p>
+
+    <h3 style="margin:0 0 8px;">Academic Materials (Semester-wise)</h3>
+    <div class="course-grid" id="semester-grid" style="padding:0 0 24px;"></div>
+
+    <h3 style="margin:0 0 8px;">Resources</h3>
+    <p style="margin:0 0 24px; line-height:1.7;">
+      Here you will find useful study materials including lecture slides and PDFs, lab manuals and reports,
+      previous year questions, and other helpful resources. If you have any extra files or resources,
+      please help others by sharing them.
+    </p>
+
+    <h3 style="margin:0 0 8px;">Want to Contribute?</h3>
+    <p style="margin:0; line-height:1.7;">
+      If you have extra notes, questions, or files, you can share them with me.<br />
+      Facebook: <a href="https://www.facebook.com/kmmurchalin144" target="_blank" rel="noopener">K M Murchalin Nirjhoy</a><br />
+      Drive Upload Link: <a href="https://drive.google.com/drive/folders/1hu2e1sJz_BShXEMANN1MijAXms2f0bjQ?usp=drive_link" target="_blank" rel="noopener">User Contributions</a>
+    </p>
+  </section>
+
+  <!-- Page 2: All courses of one semester -->
+  <section id="semester-view" class="course-detail hidden">
+    <button id="back-to-home" class="close-btn">← Back to Semester List</button>
+    <h2 id="semester-view-name"></h2>
+    <p class="detail-sub">Courses offered in this semester — click a course to view its materials</p>
+    <div class="course-grid" id="course-grid-inner" style="padding:0;"></div>
+  </section>
+
+  <!-- Page 3: Files inside a course (Books / PYQ / Class Notes) -->
+  <section id="course-detail" class="course-detail hidden">
+    <button id="back-to-semester" class="close-btn">← Back to Course List</button>
+    <h2 id="detail-course-name"></h2>
+    <p id="detail-semester-name" class="detail-sub"></p>
+
+    <div class="category-columns" id="category-columns"></div>
+  </section>
+
+  <p id="status-line" class="status-line"></p>
+</main>
+
+<footer class="site-footer">
+  <p>Maintained by K M Murchalin | CSE, FEC</p>
+</footer>
+
+<!-- Small modal form shown while adding a file -->
+<div id="upload-modal" class="modal hidden">
+  <div class="modal-card">
+    <h3>Add New File</h3>
+    <p id="upload-target-label" class="detail-sub"></p>
+    <label>File name (as shown to everyone)
+      <input type="text" id="upload-filename" placeholder="e.g. Chapter 3 - Vectors" />
+    </label>
+    <label>Upload a file (PDF) — saved to your Drive
+      <input type="file" id="upload-file-input" accept="application/pdf" />
+    </label>
+    <p class="detail-sub" style="text-align:center; margin:10px 0;">— or —</p>
+    <label>Paste a link instead (e.g. someone else's Google Drive link)
+      <input type="text" id="upload-link-input" placeholder="https://drive.google.com/file/d/..." />
+    </label>
+    <div class="modal-actions">
+      <button id="upload-cancel" class="btn-ghost">Cancel</button>
+      <button id="upload-confirm" class="btn-primary">Add</button>
+    </div>
+    <p id="upload-progress" class="detail-sub"></p>
+  </div>
+</div>
+
+<script src="https://accounts.google.com/gsi/client" async defer></script>
+<script src="config.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
