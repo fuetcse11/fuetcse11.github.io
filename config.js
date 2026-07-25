@@ -18,6 +18,7 @@ const CONFIG = {
 
   // প্রতিটা কোর্সের ভেতরে এই তিনটা ভাগ থাকবে
   CATEGORIES: ["Books", "Previous Years' Questions", "Class Notes"],
+  CATEGORIES: ["Books", "Other College Collection", "Previous Years' Questions", "Class Notes"],
 
   // এখানে আপনার কলেজের প্রকৃত সেমিস্টার ও কোর্সের নাম বসান
   SEMESTERS: [
