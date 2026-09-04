@@ -271,7 +271,7 @@ async function loadFileList(semesterName, courseName, category, container) {
 
     // Files placed directly in the Drive folder (auto-detected), skipping our internal registry file
     const q = encodeURIComponent(`'${folderId}' in parents and trashed=false and name != '${LINKS_FILE_NAME}'`);
-    const url = `${DRIVE_FILES_API}?q=${q}&fields=files(id,name,createdTime)&orderBy=name_natural&key=${CONFIG.API_KEY}`;
+    const url = `${DRIVE_FILES_API}?q=${q}&fields=files(id,name,createdTime)&orderBy=createdTime&key=${CONFIG.API_KEY}`;
     const headers = accessToken ? { Authorization: `Bearer ${accessToken}` } : {};
     const res = await fetch(url, { headers });
     const data = await res.json();
