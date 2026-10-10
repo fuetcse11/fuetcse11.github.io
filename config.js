@@ -17,8 +17,8 @@ const CONFIG = {
   ROOT_FOLDER_ID: "1uiFPVPqig2eXLKn1pEaT-EYhIiP1oCKq",
 
   // প্রতিটা কোর্সের ভেতরে এই তিনটা ভাগ থাকবে
-  CATEGORIES: ["Books", "Previous Years' Questions", "Class Notes"],
-  CATEGORIES: ["Books", "Other College Collection", "Previous Years' Questions", "Class Notes"],
+  //CATEGORIES: ["Books", "Previous Years' Questions", "Class Notes"],
+  CATEGORIES: ["Books", "Other College Collection", "Previous Years' Questions", "Batch 10", "Batch 11", "Batch 12", "Batch 13"],
 
   // এখানে আপনার কলেজের প্রকৃত সেমিস্টার ও কোর্সের নাম বসান
   SEMESTERS: [
